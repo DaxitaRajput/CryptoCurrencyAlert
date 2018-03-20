@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+   <meta charset="UTF-8">
+   {% block css %}
+   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+	{% endblock %}
+
+
+   </head>
+   <body>
+   <h2>Cryptocurrency Price Alert</h2>
+<form method="POST" action="{% url 'price-alert' %}">
+    {% csrf_token %}
+    {{ forms.price.as_p }}
+
+    <button type="submit">Start tracking</button>
+</form>
+
+<br/><br/>
+
+<h2>Volume Change (By %) Alert</h2>
+<form method="POST" action="{% url 'volume-alert' %}">
+    {% csrf_token %}
+    {{ forms.volume.as_p }}
+
+    <button type="submit">Start tracking</button>
+</form>
+
+<br/><br/>
+<h2>Market Cap Change (By %) Alert</h2>
+<form method="POST" action="{% url 'marketcap-alert' %}">
+    {% csrf_token %}
+    {{ forms.marketcap.as_p }}
+
+    <button type="submit">Start tracking</button>
+</form>
+
+
+<br/><br/>
+<h2>Profit/Loss Alert</h2>
+<form method="POST" action="{% url 'profitloss-alert' %}">
+    {% csrf_token %}
+    {{ forms.profitloss.as_p }}
+
+    <button type="submit">Start tracking</button>
+</form>
+
+
+<br/><br/>
+<h2>Price Percentage Change (By %)</h2>
+<form method="POST" action="{% url 'pricepercentage-alert' %}">
+    {% csrf_token %}
+    {{ forms.pricepercentage.as_p }}
+
+    <button type="submit">Start tracking</button>
+</form>
+
+
+</body>
+</html>

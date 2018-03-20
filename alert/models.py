@@ -9,6 +9,9 @@ class CryptoPriceAlert(models.Model):
     current_price = models.CharField(max_length=20)
     previous_price = models.CharField(max_length=20)
 
+    def __str__(self):
+        return self.from_coin_type
+
 """
 This is for crypto volume alert
 """
@@ -18,6 +21,9 @@ class CryptoVolumePrice(models.Model):
     current_volume = models.CharField(max_length=20)
     previous_volume = models.CharField(max_length=20)
 
+    def __str__(self):
+        return self.from_coin_type
+
 """
 This is for crypto marketcap alert
 """
@@ -26,6 +32,9 @@ class CryptoMarketCap(models.Model):
     to_coin_type = models.CharField(max_length=10)
     current_marketcap = models.CharField(max_length=20)
     previous_marketcap = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.from_coin_type
 
 """
 This is for user data
