@@ -1,0 +1,349 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+   <meta charset="UTF-8">
+   {% block css %}
+   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+	{% endblock %}
+
+
+   </head>
+   <body>
+   <h2>Cryptocurrency Price Alert</h2>
+<form id="price_alert_form" method="POST">
+  {% csrf_token %}
+  <div>
+      <div>
+          <label>Coin To Track</label>
+          {{form.from_coin_type}}
+      </div>
+  </div>
+
+  <div>
+  	<label>Alert Me When Price is Above</label>
+      <div>
+          <label></label>
+          {{form.above_price}}
+      </div>
+      <div>
+          <label></label>
+          {{form.above_coin_type}}
+      </div>
+  </div>
+
+  <div>
+  	<label>And/Or, When Price is Below</label>
+      <div>
+          <label></label>
+          {{form.below_price}}
+      </div>
+      <div>
+          <label></label>
+          {{form.below_coin_type}}
+      </div>
+  </div>
+
+  <div>
+      <div>
+          <label>Email Address</label>
+          {{form.email_id}}
+      </div>
+  </div>
+
+  <button type="button" class="btn btn-primary" id="price_alert_button">Start tracking</button>
+</form>
+
+<br/><br/><br/>
+
+
+<h2>Volume Change (By %) Alert</h2>
+<form id="volume_alert_form" method="POST">
+  {% csrf_token %}
+  <div>
+      <div>
+          <label>Coin To Track</label>
+          {{form.from_coin_type}}
+      </div>
+  </div>
+
+  <div>
+  	<label>Alert Me When Trade Volume Increases By (%)</label>
+      <div>
+          <label></label>
+          {{form.above_volume}}
+      </div>
+      <div>
+          <label></label>
+          {{form.above_coin_type}}
+      </div>
+  </div>
+
+  <div>
+  	<label>And/Or,When Trade Volume Decreases By (%)</label>
+      <div>
+          <label></label>
+          {{form.below_volume}}
+      </div>
+      <div>
+          <label></label>
+          {{form.below_coin_type}}
+      </div>
+  </div>
+
+  <div>
+      <div>
+          <label>Email Address</label>
+          {{form.email_id}}
+      </div>
+  </div>
+
+  <button type="button" class="btn btn-primary" id="volume_alert_button">Start tracking</button>
+</form>
+
+<br/><br/><br/>
+
+
+<h2>Market Cap Change (By %) Alert</h2>
+<form id="marketcap_alert_form" method="POST">
+  {% csrf_token %}
+  <div>
+      <div>
+          <label>Coin To Track</label>
+          {{form.from_coin_type}}
+      </div>
+  </div>
+
+  <div>
+  	<label>Alert Me When Market Cap Increases By (%)</label>
+      <div>
+          <label></label>
+          {{form.above_marketcap}}
+      </div>
+      <div>
+          <label></label>
+          {{form.above_coin_type}}
+      </div>
+  </div>
+
+  <div>
+  	<label>And/Or,When Market Cap Decreases By (%)</label>
+      <div>
+          <label></label>
+          {{form.below_marketcap}}
+      </div>
+      <div>
+          <label></label>
+          {{form.below_coin_type}}
+      </div>
+  </div>
+
+  <div>
+      <div>
+          <label>email id</label>
+          {{form.email_id}}
+      </div>
+  </div>
+
+  <button type="button" class="btn btn-primary" id="marketcap_alert_button">Start tracking</button>
+</form>
+
+<br/><br/><br/>
+
+
+<h2>Profit/Loss Alert </h2>
+<form id="profitloss_alert_form" method="POST">
+  {% csrf_token %}
+  <div>
+      <div>
+          <label>Coin To Track</label>
+          {{form.from_coin_type}}
+      </div>
+  </div>
+
+  <div>
+  	<label>Purchasing Price</label>
+      <div>
+          <label></label>
+          {{form.purchasing_price}}
+      </div>
+      <div>
+          <label></label>
+          {{form.purchasing_coin_type}}
+      </div>
+  </div>
+
+  <div>
+  	<label>Purchasing Quantity</label>
+      <div>
+          <label></label>
+          {{form.purchasing_quantity}}
+      </div>
+      
+  </div>
+  <div>
+          <label>Frequency</label>
+          {{form.frequency}}
+   </div>
+
+  <div>
+      <div>
+          <label>Email Address</label>
+          {{form.email_id}}
+      </div>
+  </div>
+
+  <button type="button" class="btn btn-primary" id="profitloss_alert_button">Start tracking</button>
+</form>
+
+
+<br/><br/><br/>
+<h2>Price Percentage Change (By %)</h2>
+<form id="pricepercentage_alert_form" method="POST">
+  {% csrf_token %}
+  <div>
+      <div>
+          <label>Coin To Track</label>
+          {{form.from_coin_type}}
+      </div>
+  </div>
+
+  <div>
+  	<label>Alert Me When The Price Increases By (%)</label>
+      <div>
+          <label></label>
+          {{form.above_price_percentage}}
+      </div>
+      <div>
+          <label></label>
+          {{form.above_coin_type}}
+      </div>
+  </div>
+
+  <div>
+  	<label>And/Or,When The Price Decreases By (%)</label>
+      <div>
+          <label></label>
+          {{form.below_price_percentage}}
+      </div>
+      <div>
+          <label></label>
+          {{form.below_coin_type}}
+      </div>
+  </div>
+
+  <div>
+      <div>
+          <label>Email Address</label>
+          {{form.email_id}}
+      </div>
+  </div>
+
+  <button type="button" class="btn btn-primary" id="pricepercentage_alert_button">Start tracking</button>
+</form>
+
+
+</body>
+
+
+</html>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js"></script>
+
+<script type="text/javascript">
+// debugger;
+
+$(document).on('click','#pricepercentage_alert_button',function(e){
+	
+
+	$("#pricepercentage_alert_form").ajaxSubmit({
+
+		url: '/alert/pricepercentage_alert/', 
+		type: 'post',
+		data: $('#pricepercentage_alert_form').serialize(),
+           success: function(data)
+           {
+           		// debugger;
+           		$('#pricepercentage_alert_form')[0].reset()
+               // alert(data);
+           }
+	});
+});
+
+
+$(document).on('click','#profitloss_alert_button',function(e){
+	
+
+	$("#profitloss_alert_form").ajaxSubmit({
+
+		url: '/alert/profitloss_alert/', 
+		type: 'post',
+		data: $('#profitloss_alert_form').serialize(),
+           success: function(data)
+           {
+           		// debugger;
+           		$('#profitloss_alert_form')[0].reset()
+               // alert(data);
+           }
+	});
+});
+
+
+$(document).on('click','#price_alert_button',function(e){
+	
+
+	$("#price_alert_form").ajaxSubmit({
+
+		url: '/alert/price_alert/', 
+		type: 'post',
+		data: $('#price_alert_form').serialize(),
+           success: function(data)
+           {
+           		// debugger;
+           		$('#price_alert_form')[0].reset()
+               // alert(data);
+           }
+	});
+});
+
+
+
+$(document).on('click','#volume_alert_button',function(e){
+	
+
+	$("#volume_alert_form").ajaxSubmit({
+
+		url: '/alert/volume_alert/', 
+		type: 'post',
+		data: $('#volume_alert_form').serialize(),
+           success: function(data)
+           {
+           		// debugger;
+           		$('#volume_alert_form')[0].reset()
+               // alert(data);
+           }
+	});
+});
+
+
+$(document).on('click','#marketcap_alert_button',function(e){
+	
+
+	$("#marketcap_alert_form").ajaxSubmit({
+
+		url: '/alert/marketcap_alert/', 
+		type: 'post',
+		data: $('#marketcap_alert_form').serialize(),
+           success: function(data)
+           {
+           		// debugger;
+           		$('#marketcap_alert_form')[0].reset()
+               // alert(data);
+           }
+	});
+});
+</script>
