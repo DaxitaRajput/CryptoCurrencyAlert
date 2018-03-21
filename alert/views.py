@@ -197,7 +197,7 @@ class IndexView(View):
 def index(request):
     
     crypto_compare_client = crypto_compare.Client() #Create an instance and call any public API method!
-    # import code; code.interact(local=dict(globals(), **locals()))
+    import code; code.interact(local=dict(globals(), **locals()))
     # crypto_compare_client.coin_list()
     # btc_coin_id = crypto_compare_client.coin_list()['Data']['BTC']['Id']
     # import code; code.interact(local=dict(globals(),**locals()))
